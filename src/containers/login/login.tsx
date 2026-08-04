@@ -1,8 +1,12 @@
-import { Box, Button, Link, Typography } from '@mui/material';
-import { GoogleIcon, MatchPetIcon } from '../../components/icons';
+import { Box, Link, Typography } from '@mui/material';
+import { GoogleLogin } from '@react-oauth/google';
+import { MatchPetIcon } from '../../components/icons';
 import { colorPalette, fontFamily } from '../../styles';
+import { useLogin } from './useLogin';
 
 const Login = () => {
+  const { error, handleSuccess, handleError } = useLogin();
+
   return (
     <Box
       sx={{
@@ -30,7 +34,7 @@ const Login = () => {
             display: 'flex',
             alignItems: 'center',
             gap: 1,
-            alignSelf: 'flex-start',
+            alignSelf: 'center',
           }}
         >
           <MatchPetIcon sx={{ fontSize: 32 }} />
@@ -54,6 +58,7 @@ const Login = () => {
           sx={{
             display: 'flex',
             flexDirection: 'column',
+            alignItems: 'center',
             gap: 1.5,
             width: '100%',
           }}
@@ -66,24 +71,23 @@ const Login = () => {
           </Typography>
         </Box>
 
-        <Button
-          fullWidth
-          aria-label="Continuar com o Google"
-          sx={{
-            height: 54,
-            borderRadius: '10px',
-            bgcolor: 'common.white',
-            boxShadow:
-              '0px 0px 1.5px rgba(0,0,0,0.08), 0px 2px 1.5px rgba(0,0,0,0.17)',
-            '&:hover': {
-              bgcolor: colorPalette.gray[100],
-              boxShadow:
-                '0px 0px 1.5px rgba(0,0,0,0.08), 0px 2px 1.5px rgba(0,0,0,0.17)',
-            },
-          }}
-        >
-          <GoogleIcon sx={{ fontSize: 24 }} />
-        </Button>
+        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <GoogleLogin
+            onSuccess={handleSuccess}
+            onError={handleError}
+            shape="pill"
+            text="continue_with"
+          />
+        </Box>
+
+        {error && (
+          <Typography
+            variant="bodyXS"
+            sx={{ color: colorPalette.feedback.error, textAlign: 'center' }}
+          >
+            {error}
+          </Typography>
+        )}
 
         <Typography
           variant="bodyXS"
