@@ -193,6 +193,13 @@ const baseTheme = createTheme({
         fullWidth: true,
       },
     },
+    MuiCardActionArea: {
+      styleOverrides: {
+        root: {
+          color: colorPalette.gray[200],
+        },
+      },
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {

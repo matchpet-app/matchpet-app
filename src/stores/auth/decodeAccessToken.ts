@@ -1,4 +1,4 @@
-import type { RoleUser } from '../../types/roleUser';
+import type { RoleUser } from '../../types/roleUser/roleUser';
 
 export interface AuthUser {
   id: string;
