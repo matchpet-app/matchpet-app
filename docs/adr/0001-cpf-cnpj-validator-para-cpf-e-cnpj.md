@@ -1,0 +1,3 @@
+# Reutilizar cpf-cnpj-validator no frontend em vez de validador próprio
+
+Precisávamos de máscara, parser e validação de CPF (e futuramente CNPJ, no cadastro de doador). O backend já usa `cpf-cnpj-validator` via decorators do `class-validator`, mas o pacote também expõe uma API pura em JS (`cpf.format/.strip/.isValid`, `cnpj.format/.strip/.isValid`) sem depender do NestJS. Em vez de escrever e manter o algoritmo de dígito verificador do zero no frontend, instalamos o mesmo pacote e usamos essa API pura — evita duplicar lógica de validação já testada no backend e já cobre CNPJ, que teríamos que implementar de qualquer forma no próximo step (doador).

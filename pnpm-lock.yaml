@@ -29,6 +29,9 @@ importers:
       axios:
         specifier: ^1.19.0
         version: 1.19.0
+      cpf-cnpj-validator:
+        specifier: ^2.1.2
+        version: 2.1.2(zod@4.4.3)
       dayjs:
         specifier: ^1.11.21
         version: 1.11.21
@@ -628,6 +631,30 @@ packages:
   cosmiconfig@7.1.0:
     resolution: {integrity: sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA==}
     engines: {node: '>=10'}
+
+  cpf-cnpj-validator@2.1.2:
+    resolution: {integrity: sha512-JhU4oUhZRugvDZvWBSsQQHNHbWcjc5VW4BlmaKfChm7ddMSh/Ixv2iHM0uFNx3hN3NYgfVgVNl5MbkjNr5tgyA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@angular/forms': '>=15'
+      class-validator: ^0.14.0 || ^0.15.0
+      joi: ^17.0.0
+      reflect-metadata: ^0.2.0
+      yup: ^1.0.0
+      zod: ^3.22.0 || ^4.0.0
+    peerDependenciesMeta:
+      '@angular/forms':
+        optional: true
+      class-validator:
+        optional: true
+      joi:
+        optional: true
+      reflect-metadata:
+        optional: true
+      yup:
+        optional: true
+      zod:
+        optional: true
 
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
@@ -1538,6 +1565,10 @@ snapshots:
       parse-json: 5.2.0
       path-type: 4.0.0
       yaml: 1.10.3
+
+  cpf-cnpj-validator@2.1.2(zod@4.4.3):
+    optionalDependencies:
+      zod: 4.4.3
 
   csstype@3.2.3: {}
 
